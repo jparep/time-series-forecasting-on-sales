@@ -13,3 +13,9 @@ model = train_forecast_model(sales_data)
 # Make Forecast
 forecast = make_forecast(model, periods=12)
 
+# Evaluate Model
+evaluation_results = evaluate_forecast(
+    actual=sales_data['sales'][-12:].values,
+    predicted=forecast['yhat'][-12:].values
+)
+print(evaluation_results)
