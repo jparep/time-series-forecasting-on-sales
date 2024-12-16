@@ -17,6 +17,7 @@ env/
 *.txt
 
 # Data files
+data/
 data/*.csv
 data/*.xlsx
 
