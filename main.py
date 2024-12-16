@@ -5,6 +5,7 @@ from src.visualization import plot_forecast
 
 # Load Data
 FILE_PATH = 'data/retail_sale.csv'
-df = load_sales_data(FILE_PATH)
+sales_data = load_sales_data(FILE_PATH)
 
-# Train
+# Train Prophet Model
+model = train_forecast_model(sales_data)
