@@ -19,3 +19,6 @@ evaluation_results = evaluate_forecast(
     predicted=forecast['yhat'][-12:].values
 )
 print(evaluation_results)
+
+# Visualiaze
+plot_forecast(sales_data, forecast)
