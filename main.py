@@ -9,3 +9,7 @@ sales_data = load_sales_data(FILE_PATH)
 
 # Train Prophet Model
 model = train_forecast_model(sales_data)
+
+# Make Forecast
+forecast = make_forecast(model, periods=12)
+
