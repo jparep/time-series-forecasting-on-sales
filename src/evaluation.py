@@ -1,4 +1,4 @@
-from sklearn.metrics import mean_absolute_error, root_mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
 def evaluate_forecast(actual, predicted):
@@ -18,7 +18,7 @@ def evaluate_forecast(actual, predicted):
     
     # Compute metrics
     mae = mean_absolute_error(actual, predicted)
-    rmse = root_mean_squared_error(actual, predicted, squared=False)  # Direct RMSE calculation
+    rmse = mean_squared_error(actual, predicted, squared=False)  # Corrected RMSE calculation
     
     # Return results in a dictionary
     return {'MAE': mae, 'RMSE': rmse}
