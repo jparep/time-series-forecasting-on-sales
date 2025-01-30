@@ -11,14 +11,24 @@ def evaluate_forecast(actual, predicted):
 
     Returns:
         dict: A dictionary containing 'MAE' and 'RMSE' scores.
+
+    Raises:
+        ValueError: If the input arrays are empty or have different lengths.
+        TypeError: If the inputs are not array-like.
     """
-    # Validate inputs for common issues
+    # Validate inputs
+    if not isinstance(actual, (list, np.ndarray, pd.Series)) or not isinstance(predicted, (list, np.ndarray, pd.Series)):
+        raise TypeError("Inputs must be array-like (e.g., list, numpy array, or pandas Series).")
+    
+    if len(actual) == 0 or len(predicted) == 0:
+        raise ValueError("Input arrays must not be empty.")
+    
     if len(actual) != len(predicted):
         raise ValueError("The 'actual' and 'predicted' arrays must have the same length.")
     
     # Compute metrics
     mae = mean_absolute_error(actual, predicted)
-    rmse = mean_squared_error(actual, predicted, squared=False)  # Corrected RMSE calculation
+    rmse = mean_squared_error(actual, predicted, squared=False)  # RMSE calculation
     
     # Return results in a dictionary
     return {'MAE': mae, 'RMSE': rmse}
