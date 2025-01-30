@@ -1,0 +1,4 @@
+awscli==1.37.2
+smmap==5.0.2
+snowflake-cli==3.2.2
+snowflake-connector-python==3.12.3
